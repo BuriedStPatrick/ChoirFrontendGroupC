@@ -31,10 +31,14 @@
 
                 $(function() {
                     
+                    if(!$("#createmember").val()){
+                        $("#findByNumber").html("<input type='text' id='numberInput'/><button id='findByNumberBtn'>Find member by number</button>");
+                    }
+                    
                     $("#findByNumberBtn").click(function(){
                         var number = $("#numberInput").val();
                         if(isValidPhone(number)){
-                            $.ajax({url: "AjaxServlet?nr=" + number + "&command=findMemberByPhone",
+                            $.ajax({url: "AjaxServlet?nr=" + number +"&command=findMemberByPhone",
                             cache: false,
                             dataType: "json",
                             success: showMemberByPhone});
@@ -102,16 +106,19 @@
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-role="content">
-                <div data-theme="a" data-role="header" data-position="fixed">
+                <div data-theme="a" data-role="header" data-position="fixed" id="header">
                      <a data-role="button" data-direction="reverse" data-transition="slide" href="FrontController?command=main" data-icon="home" data-iconpos="right" class="ui-btn-left" data-ajax="false"></a>
                     <h3>
                         Create/Edit Member
                     </h3>
                 </div>
-                <input type="text" id="numberInput"/>
-                <button id="findByNumberBtn">Find member by number</button>
+                
+                <div id="findByNumber"></div>
+                
+                <input type="hidden" id="createmember" value="${createmember}"/>
                 <form action="FrontController?command=saveMember" method="POST">
                     <input type="hidden" name="id" value="${member.id}" rule=""/>
+                    
                     <div data-role="fieldcontain">
                         <label for="textinput13">
                             First name
