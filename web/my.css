@@ -1,0 +1,16 @@
+/* 
+    Document   : my
+    Created on : Apr 25, 2013, 1:02:02 PM
+    Author     : kasper
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+    .ui-page {
+        width: 600px !important;
+        margin: 0 auto !important;
+        position: relative !important;
+    }
+    .invalid-data { border: 1px solid red;}
+
