@@ -86,7 +86,7 @@
                                 $(this).removeClass("invalid-data");
                             }
                         });
-                        return validation;
+                        return validated;
                     });
                     function isValidEmail(email) {4
                         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
