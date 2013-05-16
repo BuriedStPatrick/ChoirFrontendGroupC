@@ -28,6 +28,10 @@
                     ws.send(text);
                     $("#textInput").val("");
                 });
+                
+                $("#mainPage").click(function(){
+                    wsClosed();
+                });
 
                 $("#clear").click(function() {
                     localStorage.removeItem("Log");
@@ -49,7 +53,7 @@
                 }
 
                 function wsClosed(event) {
-                    ws.send("List:");
+                    ws.send("Close:");
                     $("#message").text("WS Closed");
                 }
 
@@ -81,6 +85,7 @@
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-theme="a" data-role="header">
+                <a id="mainPage" data-role="button" data-direction="reverse" data-transition="slide" href="FrontController?command=main" data-icon="home" data-iconpos="right" class="ui-btn-left" data-ajax="false"></a>
                 <h3>
                     Member Chat
                 </h3>

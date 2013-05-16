@@ -48,6 +48,17 @@ public class Chat extends WebSocketApplication {
                 target.send(list);
             }
             System.err.println(list);
-        }
+        }else if (text.startsWith("Close:")) {
+            String list = "List:";
+            for (WebSocket memberName : getWebSockets()) {
+                if(memberName != socket){
+                    mSocket = (MemberWebSocket) memberName;
+                    list += mSocket.getMemberName() + ","; 
+                }
+            }
+            for (WebSocket target : getWebSockets()) {
+                target.send(list);
+            }
+    }
     }
 }
