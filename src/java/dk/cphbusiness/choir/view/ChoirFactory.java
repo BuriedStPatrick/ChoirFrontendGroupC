@@ -10,6 +10,7 @@ import dk.cphbusiness.choir.commands.AjaxFindMemberCommand;
 import dk.cphbusiness.choir.commands.AjaxListArtistsByPatternCommand;
 import dk.cphbusiness.choir.commands.AjaxListMaterialsByVoiceCommand;
 import dk.cphbusiness.choir.commands.AjaxViewMaterialCommand;
+import dk.cphbusiness.choir.commands.ChatClientCommand;
 import dk.cphbusiness.choir.commands.CreateMemberCommand;
 import dk.cphbusiness.choir.commands.LoginCommand;
 import dk.cphbusiness.choir.commands.Command;
@@ -32,10 +33,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-/**
- *
- * @author Kasper
- */
+
 public class ChoirFactory {
     
     ChoirManager manager = lookupChoirManagerBeanRemote();
@@ -66,6 +64,7 @@ public class ChoirFactory {
         commands.put("searchArtists", new TargetCommand("mobileArtist.jsp"));
         commands.put("editArtist", new EditArtistCommand("artistEdit.jsp"));
         commands.put("saveArtist", new SaveArtistCommand("mobileMain.jsp"));
+        commands.put("chatClient", new ChatClientCommand("mobileChat.jsp"));
         
         //AjaxCommands
         ajaxCommands.put("ajaxViewMaterial", new AjaxViewMaterialCommand());

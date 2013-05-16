@@ -30,7 +30,6 @@ public class LoginCommand extends TargetCommand {
         try {
            session.setAttribute("loggedIn", manager.login(request.getParameter("userName"), request.getParameter("password")));
            MemberAuthentication authmember = (MemberAuthentication)session.getAttribute("loggedIn");
-            System.out.println(authmember.getId()+ ", " + authmember.getName());
         } catch (AuthenticationException ae) {
             System.out.println("Fail");
             session.removeAttribute("loggedIn");

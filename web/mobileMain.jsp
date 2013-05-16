@@ -58,6 +58,11 @@
                                 Search Artists
                             </a>
                         </li>
+                        <li>
+                            <a href="FrontController?command=chatClient" data-transition="fade" data-theme="c" data-icon="" data-ajax="false">
+                                Chat Client
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
