@@ -17,6 +17,8 @@
         </script>
         <script src="my.js">
         </script>
+        <script src="capitalizePlugin.js">   
+        </script>
         <!-- User-generated css -->
         <style>
             #errorReport{height : 150px; 
@@ -30,8 +32,10 @@
             try {
 
                 $(function() {
-                    
-                    if(!$("#createmember").val()){
+                    $("#textinput13").capitalize();
+                    $("#textinput14").capitalize();
+                    if($("#createmember").val()){
+                        alert("omg");
                         $("#findByNumber").html("<input type='text' id='numberInput'/><button id='findByNumberBtn'>Find member by number</button>");
                     }
                     
@@ -88,7 +92,7 @@
                         });
                         return validated;
                     });
-                    function isValidEmail(email) {4
+                    function isValidEmail(email) {
                         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                         return regex.test(email);
                     };
