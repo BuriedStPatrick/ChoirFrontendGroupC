@@ -24,6 +24,7 @@ public class CreateMaterialCommand extends TargetCommand{
         request.setAttribute("music", manager.listMusic());
         request.setAttribute("voices", manager.listVoices());
         request.setAttribute("material", new MaterialDetail());
+        request.setAttribute("type", request.getParameter("type"));
         return super.execute(request);
     }
     

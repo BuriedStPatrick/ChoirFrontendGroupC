@@ -12,6 +12,11 @@
   .ui-autocomplete-loading {
     background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
   }
+  
+  #ui-bounds{
+    width: 25%;
+    margin: 0 auto;
+  }
   </style>
   <script>
   $(function() {
@@ -26,7 +31,7 @@
       
       select: function( event, ui ) {
         log( ui.item ?
-          "<p>" + "Name: " + ui.item.label + "</p>" + "<p><a href=" + ui.item.wikiURL +">" + "WikiURL</a></p>":
+          "<p>" + "Name: " + ui.item.label + "</p>" + "<p><a href=" + ui.item.wikiURL +">" + "WikiURL</a></p>" + "<a data-role='button' href='FrontController?command=editArtist&id="+ui.item.id+"'>Edit</a>":
           "Nothing selected, input was " + this.value );
       }
     });
@@ -34,7 +39,7 @@
   </script>
 </head>
 <body>
- 
+<div id="ui-bounds">
 <div class="ui-widget">
   <label for="artists">Artists: </label>
   <input id="artists" />
@@ -44,7 +49,11 @@
   Result:
   <div id="log" style="height: 200px; width: 500px; overflow: auto;" class="ui-widget-content"></div>
 </div>
- 
+    <form>
+        <button type="submit" value="main" name="command"/>Go back to main page</button>
+    </form>
+</div>
+    
  
 </body>
 </html>

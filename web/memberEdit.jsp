@@ -112,9 +112,9 @@
                             </tr>
                             <tr class="ButtonRow">
                                 <td colspan="3">
-                                    <button type="submit" name="command" value="saveMember">Save</button>
-                                    <button type="submit" name="command" value="cancelMember">Cancel</button>
-                                    <button type="reset" >Reset</button>
+                                    <button type="submit" name="command" value="saveMember" data-ajax="false">Save</button>
+                                    <button type="submit" name="command" value="cancelMember" data-ajax="false">Cancel</button>
+                                    <button type="reset" data-ajax="false">Reset</button>
                                 </td>
                             </tr>
                         </table> 

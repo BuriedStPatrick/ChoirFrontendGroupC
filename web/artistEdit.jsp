@@ -43,9 +43,18 @@
                 <div class="ui-block-a">
                     <div data-role="fieldcontain">
                         <label for="textinput18">
-                            Name
+                            Firstname
                         </label>
-                        <input name="name" id="textinput18" placeholder="" value="${artist.name}" type="text">
+                        <input name="name" id="textinput18" placeholder="" value="${artist.firstName}" type="text">
+                    </div>
+                </div>
+                    <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div data-role="fieldcontain">
+                        <label for="textinput50">
+                            Lastname
+                        </label>
+                        <input name="name" id="textinput50" placeholder="" value="${artist.lastName}" type="text">
                     </div>
                 </div>
                 <div class="ui-block-b">
@@ -61,13 +70,19 @@
                 <label for="textinput17">
                     Date of Death
                 </label>
-                <input name="dateOfDeath" id="textinput15" placeholder="" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${artist.dateOfDeath}'/>" type="date">
+                <input name="dateOfDeath" id="textinput17" placeholder="" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${artist.dateOfDeath}'/>" type="date">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput51">
+                    Date of Birth
+                </label>
+                <input name="dateOfBirth" id="textinput51" placeholder="" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${artist.dateOfBirth}'/>" type="date">
             </div>
             <div data-role="fieldcontain">
                 <label for="textinput20">
                     WikiURL
                 </label>
-                <input name="wikiURL" id="textinput20" placeholder="" value="${artist.wikiURL}" type="text">
+                <input name="wikiURL" id="textinput20" placeholder="" value="${artist.wikiUrl}" type="text">
             </div>
             
             <div class="ui-grid-b">

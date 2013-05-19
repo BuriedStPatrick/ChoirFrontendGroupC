@@ -25,6 +25,8 @@ public class AjaxServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         String commandKey = req.getParameter("command");
         AjaxCommand command = ChoirFactory.getInstance().findAjaxCommand(commandKey);

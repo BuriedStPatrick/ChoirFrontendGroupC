@@ -19,9 +19,8 @@ public class AjaxListMaterialsByVoiceCommand extends AjaxCommand{
     @Override
     public String execute(HttpServletRequest request, String data) throws CommandException {
         ArrayList<MaterialSummary> materials = new ArrayList<MaterialSummary>(ChoirFactory.getInstance().getManager().listMaterialsByVoices(Integer.parseInt(request.getParameter("voiceCode"))));
-        int id = Integer.parseInt(request.getParameter("id"));
         Gson json = new Gson();
-        data = json.toJson(materials.get(id));
+        data = json.toJson(materials);
         request.setAttribute("material", data);
         
         return super.execute(request, data);

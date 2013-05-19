@@ -36,7 +36,7 @@ public class SaveMaterialCommand extends TargetCommand {
         int fileSize = Integer.parseInt(request.getParameter("fileSize"));
         int pageCount = 0;
         int playingTime = 0;
-        if("sheet".equals(request.getParameter("type"))){
+        if("sheet".equals(request.getParameter("type")) || "sheet".equals(request.getParameter("newType"))){
             pageCount = Integer.parseInt(request.getParameter("pageCount"));
         }else{
             playingTime = Integer.parseInt(request.getParameter("playingTime"));

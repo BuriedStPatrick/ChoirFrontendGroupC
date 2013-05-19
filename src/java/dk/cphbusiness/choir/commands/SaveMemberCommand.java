@@ -69,15 +69,15 @@ public class SaveMemberCommand extends TargetCommand {
             System.out.println(email);
             System.out.println(phone);
             manager.saveMember((MemberAuthentication) request.getSession().getAttribute("loggedIn"), member);
-            request.setAttribute("members",manager.listMembers());
-            request.setAttribute("roles", manager.listRoles());
-            request.setAttribute("voices", manager.listVoices());
         } catch (NoSuchMemberException ex) {
             throw new CommandException("Saving failed", ex.getMessage(), ex);
         } catch (AuthenticationException ex) {
             Logger.getLogger(SaveMemberCommand.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+        request.setAttribute("members",manager.listMembers());
+        request.setAttribute("roles", manager.listRoles());
+        request.setAttribute("voices", manager.listVoices());
         return super.execute(request);
     }
 }

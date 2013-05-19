@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AjaxListArtistsByPatternCommand extends AjaxCommand{
     
     private String singleArtist(ArtistSummary artist) {
-        return "{ \"label\": \""+artist.getName()+"\", \"value\": \""+artist.getName()+"\", \"wikiURL\": \""+artist.getWikiUrl()+"\" }";
+        return "{ \"label\": \""+artist.getName()+"\", \"value\": \""+artist.getName()+"\", \"wikiURL\": \""+artist.getWikiUrl()+"\", \"id\": \""+artist.getId()+"\" }";
     }
     
     public String execute(HttpServletRequest request, String data) throws CommandException {

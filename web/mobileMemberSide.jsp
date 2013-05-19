@@ -30,25 +30,22 @@
                     $(".memberList").on("expand", function() {
                         id = $(this).data('record');
                         console.log(id);
-                        alert("id" + id);
                         $.ajax({url: "AjaxServlet?id=" + id + "&command=ajaxFindMember", cache: false, dataType: "json", success: dataReady});
                     });
                     function dataReady(data) {
-                        alert(JSON.stringify(data));
                         $("#" + id).html("<li> Date of Birth:" + data.dateOfBirth + "</li>");
                         $("#" + id).append("<li> Voice:" + data.voice.name + "</li>");
                         $("#" + id).append("<li> Roles:" + data.roles.name + "</li>");
                         $("#" + id).append("<li> Street:" + data.street + "</li>");
                         $("#" + id).append("<li> Zipcode:" + data.zipCode + "</li>");
                         $("#" + id).append("<li> City:" + data.city + "</li>");
-                        $("#" + id).append("<li> Email:<a href=':mailto'" + data.email + "rel='external'>" + data.email + "</a></li>");
-                        $("#" + id).append("<li> Phone: <a href=':tel'" + data.phone + "rel='external'>" + data.phone + "</a></li>");
+                        $("#" + id).append("<li> Email:<a href='mailto:" + data.email + "'>" + data.email + "</a></li>");
+                        $("#" + id).append("<li> Phone: <a href='tel:" + data.phone + "'>" + data.phone + "</a></li>");
                         //                       $("#" + id).append("<form><input type=\"hidden\" name=\"id\" value=\"" + id + "\"/><button type=\"submit\" name=\"command\" value=\"editMember\">Edit</button></form>");
                         $("#" + id).append("<a data-role='button' href='FrontController?command=editMember&id=" + id + "'>Edit</a>");
                     }
                     ;
                     $("selectmenu1").change(function() {
-                        alert(this.id);
                     });
                 });
 
@@ -77,7 +74,7 @@
                     </ul>
                 </div>
             </div>
-            <div data-role="fieldcontain">
+<!--            <div data-role="fieldcontain">
                 <label for="selectmenu1">
                     Sort by voice
                 </label>
@@ -106,7 +103,7 @@
                         </option>
                     </c:forEach>
                 </select>
-            </div>
+            </div>-->
             <div data-role="content">
                 <div data-role="collapsible-set" data-inset="false">
                     <c:forEach var="member" items="${members}">

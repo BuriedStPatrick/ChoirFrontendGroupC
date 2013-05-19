@@ -17,6 +17,8 @@
         </script>
         <script src="my.js">
         </script>
+        <script src="capitalizePlugin.js">
+        </script>
         <!-- User-generated css -->
         <style>
             #errorReport{height : 150px; 
@@ -31,13 +33,14 @@
 
                 $(function() {
                     
+                    $("#textinput13").capitalize();
+                    $("#textinput14").capitalize();
                     $("#submitButton").click(function() {
                         $("#errorReport").empty();
                         var validated = true;
                         $('input').each(function() {
                             if ($(this).val() === "") {
                                var rule = $(this).attr("rule");
-                               alert(rule);
                                 if (rule.indexOf("required") >= 0) {
                                     $(this).addClass("invalid-data");
                                     $("#errorReport").append("<p>" +($(this).attr("name") + " was empty!" + "</p>"));
@@ -63,8 +66,7 @@
                                 $(this).removeClass("invalid-data");
                             }
                         });
-                        alert("false");
-                        return false;
+                        return validated;
                     });
                     function isValidEmail(email) {4
                         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -85,6 +87,7 @@
         <div data-role="page" id="page1">
             <div data-role="content">
                 <div data-theme="a" data-role="header" data-position="fixed">
+                     <a data-role="button" data-direction="reverse" data-transition="slide" href="FrontController?command=main" data-icon="home" data-iconpos="right" class="ui-btn-left" data-ajax="false"></a>
                     <h3>
                         Create/Edit Member
                     </h3>
@@ -191,12 +194,6 @@
                     <div class="ui-grid-b">
                         <div class="ui-block-a">
                             <input id="submitButton" type="submit" value="Save" data-mini="true" data-ajax="false" rule="">
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="button" value="Cancel" data-mini="true" data-ajax="false" rule="">
-                        </div>
-                        <div class="ui-block-c">
-                            <input type="button" value="Reset" data-mini="true" data-ajax="false" rule="">
                         </div>
                     </div>
                 </form>

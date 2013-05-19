@@ -11,8 +11,9 @@ public class TargetCommand implements Command {
 
   @Override
   public String execute(HttpServletRequest request) throws CommandException {
-        if(request.getSession().getAttribute("loggedIn")== null)
-        {
+        if(request.getSession().getAttribute("loggedIn")== null){
+        
+            System.out.println("WTF ARE YOU DOING HERE OMG");
             target = "loginMobile.jsp";
         }
     return target;

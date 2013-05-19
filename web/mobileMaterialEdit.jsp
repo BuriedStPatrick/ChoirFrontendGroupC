@@ -23,26 +23,41 @@
         <!-- User-generated js -->
         <script>
             try {
-                $(function(){
-                   var type = $('#materialType').val();
+                $(function() {
+                    var type;
+                    if ($('#materialType').val() !== "")
+                        type = $('#materialType').val();
+                    else
+                    {
+                        type = $('#newMaterialType').val();
+                    }
                     if (type === "audio") {
                         $("#sheetOrAudio").html("<label for='textinput20'>Playing time</label> <input name='playingTime' id='textinput20' placeholder='' value='" + ${material.playingTime} + "' type='text'/>");
                     } else {
                         $("#sheetOrAudio").html("<label for='textinput21'>Page count</label><input name='pageCount' id='textinput21' placeholder='' value='" + ${material.pageCount} + "' type='text'/>");
                     }
                 });
-                    
-                }catch (error) {
+
+            } catch (error) {
                 console.error("Your javascript has an error: " + error);
             }
         </script>
     </head>
     <body>
-        <!-- Home -->
+        <!-- Home -->        
+
+        
         <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <a data-role="button" data-direction="reverse" data-transition="slide" href="FrontController?command=main" data-icon="home" data-iconpos="right" class="ui-btn-left" data-ajax="false"></a>
+                <h3>
+                    Create/edit Material
+                </h3>
+            </div>
             <div data-role="content">
                 <form action="FrontController?command=saveMaterial" method="POST">
                     <input id="materialType" name="type" type="hidden" value ="${material.type}"/>
+                    <input id="newMaterialType" name="newType" type="hidden" value ="${type}"/>
                     <input type="hidden" name="id" value="${material.id}"/>
                     <div data-role="fieldcontain">
                         <label for="textinput13">
@@ -102,13 +117,7 @@
                     </div>
                     <div class="ui-grid-b">
                         <div class="ui-block-a">
-                            <input type="submit" value="Save" data-mini="true">
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="submit" value="Cancel" data-mini="true">
-                        </div>
-                        <div class="ui-block-c">
-                            <input type="submit" value="Reset" data-mini="true">
+                            <input type="submit" value="Save" data-mini="true" data-ajax="false">
                         </div>
                     </div>
                 </form>
