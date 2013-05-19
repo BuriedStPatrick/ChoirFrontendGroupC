@@ -29,6 +29,7 @@ public class AjaxServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         String commandKey = req.getParameter("command");
+        
         AjaxCommand command = ChoirFactory.getInstance().findAjaxCommand(commandKey);
         
         try{

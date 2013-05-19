@@ -17,7 +17,6 @@ public class AjaxFindMemberCommand extends AjaxCommand{
         Gson json = new Gson();
         try {
             data = json.toJson(manager.findMember((Integer.parseInt(request.getParameter("id")))));
-            System.err.println(data);
         } catch (NoSuchMemberException ex) {
             Logger.getLogger(AjaxServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

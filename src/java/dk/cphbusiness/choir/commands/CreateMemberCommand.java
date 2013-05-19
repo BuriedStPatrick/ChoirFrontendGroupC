@@ -26,6 +26,7 @@ public class CreateMemberCommand extends TargetCommand{
         request.setAttribute("roles", manager.listRoles());
         request.setAttribute("voices", manager.listVoices());
         request.setAttribute("member", new MemberDetail());
+        request.setAttribute("createmember", true);
         return super.execute(request);
     }
     

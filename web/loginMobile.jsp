@@ -24,7 +24,7 @@
             try {
 
     $(function() {
-     
+        
         $("form").submit(function(){
           var validated = true;
           $('input').each(function(){

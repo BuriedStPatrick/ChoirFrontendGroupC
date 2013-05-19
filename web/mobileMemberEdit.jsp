@@ -17,8 +17,6 @@
         </script>
         <script src="my.js">
         </script>
-        <script src="capitalizePlugin.js">
-        </script>
         <!-- User-generated css -->
         <style>
             #errorReport{height : 150px; 
@@ -33,8 +31,30 @@
 
                 $(function() {
                     
-                    $("#textinput13").capitalize();
-                    $("#textinput14").capitalize();
+                    if(!$("#createmember").val()){
+                        $("#findByNumber").html("<input type='text' id='numberInput'/><button id='findByNumberBtn'>Find member by number</button>");
+                    }
+                    
+                    $("#findByNumberBtn").click(function(){
+                        var number = $("#numberInput").val();
+                        if(isValidPhone(number)){
+                            $.ajax({url: "AjaxServlet?nr=" + number +"&command=findMemberByPhone",
+                            cache: false,
+                            dataType: "json",
+                            success: showMemberByPhone});
+                        }else
+                            alert("Please provide a valid phonenumber containing only numbers.");
+                    });
+                    
+                    function showMemberByPhone(data){
+                        $("#textinput13").val(data.firstName);
+                        $("#textinput14").val(data.lastName);
+                        $("#textinput16").val(data.street);
+                        $("#textinput18").val(data.zipcode);
+                        $("#textinput19").val(data.city);
+                        $("#textinput17").va(data.phone);
+                    }
+                    
                     $("#submitButton").click(function() {
                         $("#errorReport").empty();
                         var validated = true;
@@ -86,14 +106,19 @@
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-role="content">
-                <div data-theme="a" data-role="header" data-position="fixed">
+                <div data-theme="a" data-role="header" data-position="fixed" id="header">
                      <a data-role="button" data-direction="reverse" data-transition="slide" href="FrontController?command=main" data-icon="home" data-iconpos="right" class="ui-btn-left" data-ajax="false"></a>
                     <h3>
                         Create/Edit Member
                     </h3>
                 </div>
+                
+                <div id="findByNumber"></div>
+                
+                <input type="hidden" id="createmember" value="${createmember}"/>
                 <form action="FrontController?command=saveMember" method="POST">
                     <input type="hidden" name="id" value="${member.id}" rule=""/>
+                    
                     <div data-role="fieldcontain">
                         <label for="textinput13">
                             First name
