@@ -56,7 +56,7 @@
                         $("#textinput16").val(data.street);
                         $("#textinput18").val(data.zipcode);
                         $("#textinput19").val(data.city);
-                        $("#textinput17").va(data.phone);
+                        $("#textinput17").val(data.phone);
                     }
                     
                     $("#submitButton").click(function() {
