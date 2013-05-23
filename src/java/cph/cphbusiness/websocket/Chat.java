@@ -48,11 +48,28 @@ public class Chat extends WebSocketApplication {
                 target.send(list);
             }
             System.err.println(list);
-        }else if (text.startsWith("Close:")) {
+//        }else if (text.startsWith("Close:")) {
+//            String list = "List:";
+//            for (WebSocket memberName : getWebSockets()) {
+//                if(memberName != socket){
+//                    mSocket = (MemberWebSocket) memberName;
+//                    list += mSocket.getMemberName() + ","; 
+//                }
+//            }
+//            for (WebSocket target : getWebSockets()) {
+//                target.send(list);
+//            }
+    }
+        
+    }
+
+    @Override
+    public void onClose(WebSocket socket, DataFrame frame) {
+        super.onClose(socket, frame); //To change body of generated methods, choose Tools | Templates.
             String list = "List:";
             for (WebSocket memberName : getWebSockets()) {
                 if(memberName != socket){
-                    mSocket = (MemberWebSocket) memberName;
+                    MemberWebSocket mSocket = (MemberWebSocket) memberName;
                     list += mSocket.getMemberName() + ","; 
                 }
             }
@@ -60,5 +77,5 @@ public class Chat extends WebSocketApplication {
                 target.send(list);
             }
     }
-    }
+   
 }

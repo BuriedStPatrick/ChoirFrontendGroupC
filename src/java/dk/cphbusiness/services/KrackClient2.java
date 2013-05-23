@@ -11,24 +11,31 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
 /**
- * Jersey REST client generated for REST resource:PersondataFacadeREST
+ * Jersey
+ * REST
+ * client
+ * generated
+ * for
+ * REST
+ * resource:PersondataFacadeREST
  * [dk.cphbusiness.services.persondata]<br>
  * USAGE:
  * <pre>
- *        KrakClient client = new KrakClient();
+ *        KrackClient2 client = new KrackClient2();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
  * </pre>
  *
- * @author PC
+ * @author
+ * kasper
  */
-public class KrakClient {
+public class KrackClient2 {
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/WannabeKrakService/resources";
+    private static final String BASE_URI = "https://localhost:8181/WannabeKrakService/resources";
 
-    public KrakClient() {
+    public KrackClient2() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig(); // SSL configuration
         config.getProperties().put(com.sun.jersey.client.urlconnection.HTTPSProperties.PROPERTY_HTTPS_PROPERTIES, new com.sun.jersey.client.urlconnection.HTTPSProperties(getHostnameVerifier(), getSSLContext()));
         client = Client.create(config);
@@ -37,12 +44,6 @@ public class KrakClient {
 
     public void remove(String id) throws UniformInterfaceException {
         webResource.path(java.text.MessageFormat.format("{0}", new Object[]{id})).delete();
-    }
-
-    public String countREST() throws UniformInterfaceException {
-        WebResource resource = webResource;
-        resource = resource.path("count");
-        return resource.accept(javax.ws.rs.core.MediaType.TEXT_PLAIN).get(String.class);
     }
 
     public <T> T findAll_XML(Class<T> responseType) throws UniformInterfaceException {
@@ -89,15 +90,21 @@ public class KrakClient {
         return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    public String getCount() throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path("Count");
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
+    }
+
     public void close() {
         client.destroy();
     }
-    
+
     public void setUsernamePassword(String username, String password) {
         client.addFilter(new com.sun.jersey.api.client.filter.HTTPBasicAuthFilter(username, password));
     }
-    
-        private HostnameVerifier getHostnameVerifier() {
+
+    private HostnameVerifier getHostnameVerifier() {
         return new HostnameVerifier() {
             @Override
             public boolean verify(String hostname, javax.net.ssl.SSLSession sslSession) {

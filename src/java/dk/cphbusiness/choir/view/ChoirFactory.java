@@ -106,6 +106,9 @@ public class ChoirFactory {
         }
     }
 
+    public void setManager(ChoirManager manager){
+        this.manager = manager;
+    }
 
     
 }

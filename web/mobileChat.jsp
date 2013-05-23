@@ -30,7 +30,7 @@
                 });
                 
                 $("#mainPage").click(function(){
-                    wsClosed();
+                    wsClose();
                 });
 
                 $("#clear").click(function() {
@@ -53,8 +53,12 @@
                 }
 
                 function wsClosed(event) {
+                    alert("websocket closed");
+                }
+                
+                function wsClose(){
                     ws.send("Close:");
-                    $("#message").text("WS Closed");
+                    ws.close();
                 }
 
 
