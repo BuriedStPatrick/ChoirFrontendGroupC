@@ -105,6 +105,10 @@ public class ChoirFactory {
             throw new RuntimeException(ne);
         }
     }
+    
+    public void setManager(ChoirManager manager){
+        this.manager = manager;
+    }
 
     public void setManager(ChoirManager manager){
         this.manager = manager;
